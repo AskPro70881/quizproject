@@ -22,10 +22,12 @@ class QuestionInline(admin.StackedInline):
 
 class QuestionAdmin(admin.ModelAdmin):
     inlines = [ChoiceInline]
+    list_display = ('question_text', 'lesson', 'grade')
 
 
 class LessonAdmin(admin.ModelAdmin):
     inlines = [QuestionInline]
+    list_display = ('title', 'course', 'order')
 
 
 admin.site.register(Course)
